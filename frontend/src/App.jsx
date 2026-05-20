@@ -1,26 +1,24 @@
-import { Button } from "@/components/ui/button"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import SignInForm from "./auth/forms/SignInForm"
+import SignUpForm from "./auth/forms/SignUpForm"
+import { Home } from "lucide-react"
+import About from "./pages/About"
+import Dashboard from "./pages/Dashboard"
+import NewsArticles from "./pages/NewsArticles"
 
 function App() {
   return (
-    <div className="min-h-screen bg-amber-800 text-white flex flex-col items-center justify-center gap-6">
-      
-      <h1 className="text-5xl font-bold">
-        Newsify 🚀
-      </h1>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/sign-in" element={<SignInForm/>} />
+      <Route path="/sign-up" element={<SignUpForm/>} />
 
-      <Button className="bg-amber-950">
-        shadcn Button
-      </Button>
-
-      <Button variant="destructive">
-        Breaking News
-      </Button>
-
-      <Button variant="outline">
-        Explore
-      </Button>
-
-    </div>
+      <Route path="/" element={<Home/>} />
+      <Route path="/about" element={<About />} />
+      <Route path="/dashboard" element={<Dashboard/>} />
+      <Route path="/news" element={<NewsArticles/>} />    
+    </Routes>
+    </BrowserRouter>   
   )
 }
 
